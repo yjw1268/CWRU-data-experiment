@@ -1,21 +1,21 @@
-# 轴承故障预测 第十组
-
-
+# 轴承故障预测 小程序
+第十组
 
 ## 项目结构
 
 ```
-10:.
+wxapp
+.
 ├─cloudfunctions
 │  └─sendEmail
 │      └─node_modules
 │          └─nodemailer
 │              └─lib
-│                  ├─...
+│                  └─...
 └─miniprogram
     ├─components
     ├─dist
-    │  ├─...
+    │  └─...
     ├─ec-canvas
     ├─pages
     │  ├─index
@@ -53,6 +53,14 @@
   + **sendEmail**
 
     使用node.js的nodemailer类库实现工单邮件的发送
+    ![image.png](https://i.loli.net/2020/05/12/Ke6cfBLJHQGIUlu.png)
+
+## 程序部分截图
+![image.png](https://i.loli.net/2020/05/12/KVpCGmLEvlRSoBu.png)
+
+![image.png](https://i.loli.net/2020/05/12/mCWFeSU1XEV6KBJ.png)
+
+
 
 ## 参考文档
 
