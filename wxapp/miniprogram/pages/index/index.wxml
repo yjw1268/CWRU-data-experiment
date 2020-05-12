@@ -1,0 +1,93 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="title" style="top: 4.5vh;font-size: large;">轴承故障预测结果</view>
+  <view class="email" bindtap="mail" hover-class='back_press' hover-start-time='20' hover-stay-time='100'>
+    <van-icon name="envelop-o" size="6vw" />
+  </view>
+  <view class="infos" bindtap="infos" hover-class='back_press' hover-start-time='20' hover-stay-time='100'>
+    <van-icon name="info-o" size="6vw" />
+  </view>
+  <view class="stars" bindtap="stars" hover-class='back_press' hover-start-time='20' hover-stay-time='100'>
+    <van-icon name="star-o" size="6vw" />
+  </view>
+  <van-toast id="van-toast" />
+  <view class="pie_graph" style="width:96vw; height:35vh">
+    <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}" bindtap="pie_click"></ec-canvas>
+  </view>
+  <van-popup show="{{ popup_show }}" z-index='10000' round bind:close="onClose" position="bottom" custom-style="height: 27%">
+    <view hidden="{{!warning}}">
+      <van-divider contentPosition="center" customStyle="color: black;border-color: white;">邮件发送</van-divider>
+    </view>
+    <view hidden="{{warning}}">
+      <van-divider contentPosition="center" customStyle="color: red;border-color: white">您输入的邮箱地址有误，请检查完毕后再次点击发送</van-divider>
+    </view>
+    <van-field
+      bindinput='setEmail'
+      value="{{ email }}"
+      center
+      clearable
+      label="收件地址"
+      placeholder="请输入邮件收件地址"
+      border="{{ false }}"
+      use-button-slot
+      bind:focus='input_focus'
+    >
+    </van-field>
+    <button type="primary" bindtap="sendEmail" style="margin-top:3vh">发送</button>
+  </van-popup>
+  <van-popup show="{{ info_show }}" z-index='10000' round bind:close="onClose" position="bottom" custom-style="height: 65vh">
+    <van-cell-group>
+      <van-divider contentPosition="center" textColor="#1989fa">算法相关信息</van-divider>
+      <van-cell title="varianceScore" value="0.9928639391056137" label="可释方差值" />
+      <van-cell title="absoluteError" value="0.0038022813688212928" label="平均绝对误差" />
+      <van-cell title="squaredError" value="0.08720414403938946" label="均方根误差" />
+      <van-cell title="medianSquaredError" value="0.0" label="中值绝对误差" />
+      <van-cell title="r2Score" value="0.992850346608672" label="R方值" />
+      <van-divider contentPosition="center">yjw design</van-divider>
+    </van-cell-group>
+  </van-popup>
+  <view class="bearing_list">
+    <van-tabs active="{{ active }}" animated color='#37a2da'>
+      <van-tab title="Normal">
+        <scroll-view scroll-y="true" style="height: 45vh;">
+          <van-cell-group>
+            <van-cell wx:for="{{bearing_list.list_label0}}" wx:key='index' title="TEST{{item}}" border="{{ false }}">
+              <van-icon name="{{stars[item]}}" color="{{stars[item]=='star' ? '#ffba00' : ''}}" size="6vw" style="margin-right:4vw" bindtap='collect' data-item='{{item}}'/>
+              <van-icon name="arrow" size="6vw" bindtap='next' data-item='{{item}}'/>
+            </van-cell>
+          </van-cell-group>
+        </scroll-view>
+      </van-tab>
+      <van-tab title="Ball类报错">
+        <scroll-view scroll-y="true" style="height: 45vh;">
+          <van-cell-group>
+            <van-cell wx:for="{{bearing_list.list_label1}}" wx:key='index' title="TEST{{item}}" border="{{ false }}">
+              <van-icon name="{{stars[item]}}" color="{{stars[item]=='star' ? '#ffba00' : ''}}" size="6vw" style="margin-right:4vw" bindtap='collect' data-item='{{item}}'/>
+              <van-icon name="arrow" size="6vw" bindtap='next' data-item='{{item}}'/>
+            </van-cell>
+          </van-cell-group>
+        </scroll-view>
+      </van-tab>
+      <van-tab title="OR类报错">
+        <scroll-view scroll-y="true" style="height: 45vh;">
+          <van-cell-group>
+            <van-cell wx:for="{{bearing_list.list_label2}}" wx:key='index' title="TEST{{item}}" border="{{ false }}">
+              <van-icon name="{{stars[item]}}" color="{{stars[item]=='star' ? '#ffba00' : ''}}" size="6vw" style="margin-right:4vw" bindtap='collect' data-item='{{item}}'/>
+              <van-icon name="arrow" size="6vw" bindtap='next' data-item='{{item}}'/>
+            </van-cell>
+          </van-cell-group>
+        </scroll-view>
+      </van-tab>
+      <van-tab title="IR类报错">
+        <scroll-view scroll-y="true" style="height: 45vh;">
+          <van-cell-group>
+            <van-cell wx:for="{{bearing_list.list_label3}}" wx:key='index' title="TEST{{item}}" border="{{ false }}">
+              <van-icon name="{{stars[item]}}" color="{{stars[item]=='star' ? '#ffba00' : ''}}" size="6vw" style="margin-right:4vw" bindtap='collect' data-item='{{item}}'/>
+              <van-icon name="arrow" size="6vw" bindtap='next' data-item='{{item}}'/>
+            </van-cell>
+          </van-cell-group>
+        </scroll-view>
+      </van-tab>
+    </van-tabs>
+  </view>
+</view>

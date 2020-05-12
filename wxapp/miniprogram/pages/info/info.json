@@ -1,0 +1,13 @@
+{
+  "usingComponents": {
+    "van-icon": "../../dist/icon/index",
+    "van-loading": "../../dist/loading/index",
+    "van-card": "../../dist/card/index",
+    "van-cell": "../../dist/cell/index",
+    "van-cell-group": "../../dist/cell-group/index",
+    "van-toast": "../../dist/toast/index",
+    "van-divider": "../../dist/divider/index",
+    "ec-canvas": "../../ec-canvas/ec-canvas"
+  },
+  "disableScroll": true
+}

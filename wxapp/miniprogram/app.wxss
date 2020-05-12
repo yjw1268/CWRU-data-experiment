@@ -1,0 +1,51 @@
+/**app.wxss**/
+view{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.container{
+  height: 100vh;
+  width: 100vw;
+  height: 100vh;
+}
+canvas{
+  z-index: 0;
+}
+ec-canvas{
+  width: 100%;
+  height: 100%;
+  z-index: 0
+}
+.email,.back,.infos,.stars{
+  position: absolute;
+  top: 4.5vh;
+  left: 3vw;
+  width: 8vw;
+  height: 8vw;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.infos{
+  left: 12vw;
+}
+.stars{
+  left: 21vw;
+}
+.title{
+  position: absolute;
+  top: 9vh;
+  left: 0;
+  width: 100vw;
+  height: 8vw;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.back_press{
+  color: white;
+  border: none;
+}

@@ -1,0 +1,17 @@
+{
+  "usingComponents": {
+    "ec-canvas": "../../ec-canvas/ec-canvas",
+    "van-icon": "../../dist/icon/index",
+    "van-tab": "../../dist/tab/index",
+    "van-tabs": "../../dist/tabs/index",
+    "van-cell": "../../dist/cell/index",
+    "van-cell-group": "../../dist/cell-group/index",
+    "van-toast": "../../dist/toast/index",
+    "van-field": "../../dist/field/index",
+    "van-button": "../../dist/button/index",
+    "van-popup": "../../dist/popup/index",
+    "van-divider": "../../dist/divider/index",
+    "van-swipe-cell": "../../dist/swipe-cell/index"
+  },
+  "disableScroll": true
+}
