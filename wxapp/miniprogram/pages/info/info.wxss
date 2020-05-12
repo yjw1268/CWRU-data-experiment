@@ -1,0 +1,39 @@
+/* pages/info/info.wxss */
+
+.headinfo{
+  width: 90vw;
+  height: 30vw;
+  border: 1px solid #000;
+  border-radius: 3vw;
+  margin-top: 15vh;
+  margin-left: 5vw;
+  margin-bottom: 3vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.headinfo_item{
+  flex: 1;
+  text-align: center;
+}
+.rpm_label{
+  font-size: x-large;
+}
+.rpm_value{
+  font-size: small;
+  color: #888;
+}
+ec-canvas{
+  width: 100%;
+  height: 100%;
+}
+.canvas{
+  margin-left: 5vw;
+}
+.foot_info{
+  margin-top: 0vh;
+  display: flex;
+}
+.van-cell{
+  flex: 1;
+}

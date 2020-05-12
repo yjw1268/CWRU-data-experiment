@@ -1,0 +1,79 @@
+<view class="container">
+  <view class="back" bindtap="back" hover-class='back_press' hover-start-time='20' hover-stay-time='100'>
+    <van-icon name="arrow-left" size="6vw"/>
+  </view>
+  <view class="infos" hidden="{{from=='index' ? true : false}}" bindtap="index" hover-class='back_press' hover-start-time='20' hover-stay-time='100'>
+    <van-icon name="home-o" size="6vw"/>
+  </view>
+  <view class="{{star_position}}" hover-class='back_press' hover-start-time='20' hover-stay-time='100'>
+    <van-icon name="{{stars[item]}}" color="{{stars[item]=='star' ? '#ffba00' : ''}}" size="6vw" bindtap='collect'/>
+  </view>
+  <van-toast id="van-toast" />
+  <van-divider class="title" contentPosition="center" customStyle="color: black;border-color: white;font-size: large;">TEST{{item}}详细数据({{kind}})</van-divider>
+  <view class="headinfo">
+    <view class="headinfo_item">
+      <view class="rpm_label" style="font-size:xx-large">{{rpm}}</view>
+      <view class="rpm_value" style="font-size:medium">RPM</view>
+    </view>
+    <view class="headinfo_item">
+      <view class="rpm_label">{{de_rt}}</view>
+      <view class="rpm_value">DE_time(RT)</view>
+      <view class="rpm_label">{{de_ave}}</view>
+      <view class="rpm_value">DE_time(AVG)</view>
+    </view>
+    <view class="headinfo_item">
+      <view class="rpm_label">{{fe_rt}}</view>
+      <view class="rpm_value">FE_time(RT)</view>
+      <view class="rpm_label">{{fe_ave}}</view>
+      <view class="rpm_value">FE_time(AVG)</view>
+    </view>
+  </view>
+  <view class="canvas" style="width:90vw; height:25vh">
+    <ec-canvas id="mychart" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+  </view>
+  <view class="foot_info">
+    <view class='van-cell'>
+      <van-cell label="驱动端(DE)特征" size="large" />
+      <scroll-view scroll-y="true" style="height: 33vh;">
+        <van-cell-group>
+          <van-cell 
+          wx:for="{{features_DE}}" 
+          wx:key="index" 
+          title="{{filter.formatDate(data['DE_'+item][0])}}" 
+          value="{{item}}" size="small"
+          bindtap='info_detail' data-item='{{item}}' data-kind='DE_'
+          />
+        </van-cell-group>
+      </scroll-view>
+    </view>
+    <view class='van-cell'>
+      <van-cell label="风扇端(FE)特征" size="large" />
+      <scroll-view scroll-y="true" style="height: 33vh;">
+        <van-cell-group>
+          <van-cell 
+          wx:for="{{features_FE}}" 
+          wx:key="index" 
+          title="{{filter.formatDate(data['FE_'+item][0])}}" 
+          value="{{item}}" 
+          size="small"
+          bindtap='info_detail' data-item='{{item}}' data-kind='FE_'
+          />
+        </van-cell-group>
+      </scroll-view>
+    </view>
+  </view>
+</view>
+
+<wxs module="filter">
+    var formatDate = function(item) {
+      if (item) {
+        if (parseInt(item)>=10){
+          return item.toFixed(0)
+        }
+        return item.toFixed(3)
+      } else {
+        return ''
+      }
+    }
+    module.exports.formatDate = formatDate;
+</wxs>
