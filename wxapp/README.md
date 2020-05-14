@@ -358,7 +358,7 @@ Page({
 
 ## APP生命周期
 
-![](https://res.wx.qq.com/wxdoc/dist/assets/img/page-lifecycle.2e646c86.png)
+![img](https://res.wx.qq.com/wxdoc/dist/assets/img/page-lifecycle.2e646c86.png)
 
 
 
