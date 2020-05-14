@@ -4,6 +4,10 @@
 
 ![](https://ftp.bmp.ovh/imgs/2020/05/a047b6eaf09fc0fe.jpg)
 
+
+
+
+
 ## 项目结构
 
 ```
@@ -30,77 +34,78 @@
 
 项目中主要包括miniprogram以及放置云函数的cloudfunctions两个部分。
 
-+ **miniprogram**
 
-  + **dist**
 
-    存放了本项目使用的组件库：Vant Weapp
+### miniprogram
 
-    > Vant Weapp 是移动端 Vue 组件库 [Vant](https://github.com/youzan/vant) 的小程序版本，两者基于相同的视觉规范，提供一致的 API 接口，助力开发者快速搭建小程序应用。
+#### dist
 
-  + **ec-canvas**
+存放了本项目使用的组件库：Vant Weapp
+> Vant Weapp 是移动端 Vue 组件库 [Vant](https://github.com/youzan/vant) 的小程序版本，两者基于相同的视觉规范，提供一致的 API 接口，助力开发者快速搭建小程序应用。
 
-    存放了本项目使用的图表组件库：[ECharts](https://github.com/ecomfe/echarts-for-weixin)
+#### ec-canvas
 
-  + **pages**
+存放了本项目使用的图表组件库：[ECharts](https://github.com/ecomfe/echarts-for-weixin)
 
-    存放了本项目的界面文件
+#### pages
 
-    + **index：**小程序主页相关代码
+存放了本项目的界面文件
     
-      import.js (主要代码)
-    
-      ```js
-      Page({
-        data: {
-          email: '',    // 获取目的邮件地址
-          ec: {
-            onInit: initChart    // 控制echarts慢启动
-          }
-        },
-        onLoad(){...},    // 页面加载时触发函数，实现收藏的触发更新
-        pie_click(){...},    // 实现饼图的点击切页操作
-        next(){...},    // 实现前往info页的跳转
-        collect(){...},    // 增加或取消收藏
-        sendEmail(){...},    // 传递邮件地址判定后发送邮件
-        stars(){...},    // 实现前往stars页的跳转
-      })
-      ```
-    
-    + **info：**小程序数据页相关代码
-      
-       info.js (主要代码)
-       
-       ```js
-        Page({
-          data: {...},
-          onReady() {
-              this.data.interval = setInterval(() => {
-                this.getData()
-              }, 1000);
-              this.getFeature();
-          },    // 利用Interval定时器实现数据的实时更新以及折线图的动态更新
-          onLoad(){...},    // 页面加载时触发函数，实现收藏的触发更新
-          getData(){
-              ...
-              wx.request({
-                 url: '...', // 开发者服务器接口地址
-                 herder:{
-                   "content-type":"json"
-                 }, // 设置请求的 header，header 中不能设置 Referer。content-type 默认为 application/json
-                 success: res=>{ }, // 接口调用成功的回调函数
-                 fail: res=>{ }, // 接口调用失败的回调函数
-                 complete: res=>{ }, // 接口调用结束的回调函数（调用成功、失败都会执行）
-               });
-              ...
-          },    // 发起 HTTPS 网络请求
-        })
-       ```
-       
-    + **stars：**小程序收藏夹相关代码
-    
-  + **app.json**
-  
++ **index：**小程序主页相关代码
+	
+	import.js (主要代码)
+	
+	  ```js
+	  Page({
+	    data: {
+	      email: '',    // 获取目的邮件地址
+	      ec: {
+	        onInit: initChart    // 控制echarts慢启动
+	      }
+	    },
+	    onLoad(){...},    // 页面加载时触发函数，实现收藏的触发更新
+	    pie_click(){...},    // 实现饼图的点击切页操作
+	    next(){...},    // 实现前往info页的跳转
+	    collect(){...},    // 增加或取消收藏
+	    sendEmail(){...},    // 传递邮件地址判定后发送邮件
+	    stars(){...},    // 实现前往stars页的跳转
+	  })
+	  ```
+	
++ **info：**小程序数据页相关代码
+	
+	   info.js (主要代码)
+	
+	   ```js
+	    Page({
+	      data: {...},
+	      onReady() {
+	          this.data.interval = setInterval(() => {
+	            this.getData()
+	          }, 1000);
+	          this.getFeature();
+	      },    // 利用Interval定时器实现数据的实时更新以及折线图的动态更新
+	      onLoad(){...},    // 页面加载时触发函数，实现收藏的触发更新
+	      getData(){
+	          ...
+	          wx.request({
+	             url: '...', // 开发者服务器接口地址
+	             herder:{
+	               "content-type":"json"
+	             }, // 设置请求的 header，header 中不能设置 Referer。content-type 默认为 application/json
+	             success: res=>{ }, // 接口调用成功的回调函数
+	             fail: res=>{ }, // 接口调用失败的回调函数
+	             complete: res=>{ }, // 接口调用结束的回调函数（调用成功、失败都会执行）
+	           });
+	          ...
+	      },    // 发起 HTTPS 网络请求
+	    })
+	   ```
+	
++ **stars：**小程序收藏夹相关代码
+
+#### app.json
+
     ```json
     {
       "pages": [...],
@@ -112,11 +117,13 @@
       "style": "v2"
     }
     ```
-  
-    实现标题栏隐藏
-+ **cloudfunctions**
+实现标题栏隐藏
 
-  + **sendEmail**
+
+
+### cloudfunctions
+
+  #### sendEmail
 
     使用node.js的nodemailer类库实现工单邮件的发送
     
@@ -158,9 +165,13 @@
 
 
 
+
+
 ## CSS样式设置
 
-+ **全局`box-sizing`**
+
+
+#### 全局`box-sizing`
 
   ```css
   {
@@ -168,14 +179,16 @@
     margin: 0;
     box-sizing: border-box;
     /* 
-      为元素设定的宽度和高度决定了元素的边框盒。
+  	为元素设定的宽度和高度决定了元素的边框盒。
   	就是说，为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。
   	通过从已设定的宽度和高度分别减去边框和内边距才能得到内容的宽度和高度。
     */
   }
   ```
 
-+ **vw、vh的使用**
+
+
+#### vw、vh的使用
 
   + vw : 1vw 等于视口宽度的1%
   
@@ -189,17 +202,21 @@
   >
   > 也可以使用vant等组件库中的Layout布局插件
 
-+ **实现页面居中**
+
+
+#### 实现页面居中
 
   ```css
   {
-    display: flex;
+  	display: flex;
   	justify-content: center;
   	align-items: center;
   }
   ```
-  
-+ **边框阴影**
+
+
+
+#### 边框阴影
 
   `box-shadow` 属性用于在元素的框架上添加阴影效果，该属性可设置的值包括X轴偏移、Y轴偏移、阴影模糊半径、阴影扩散半径，和阴影颜色，并以多个逗号分隔。
 
@@ -227,7 +244,10 @@
   }
   ```
 
-  
+
+
+
+
 
 ## Vant 的引用
 
@@ -272,6 +292,8 @@ npm i vant-weapp -S --production
 #### 步骤四 修改 app.json
 
 ​	将 app.json 中的 `"style": "v2"` 去除，小程序的[新版基础组件](https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/app.html#style)强行加上了许多样式，难以去除，不关闭将造成部分组件样式混乱。
+
+
 
 
 
@@ -356,9 +378,13 @@ Page({
 
 
 
+
+
 ## APP生命周期
 
 ![img](https://ftp.bmp.ovh/imgs/2020/05/a46a83056a552172.png)
+
+
 
 
 
