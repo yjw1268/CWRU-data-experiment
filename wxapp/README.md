@@ -51,7 +51,7 @@
 
 存放了本项目的界面文件
     
-+ **index：**小程序主页相关代码
++ index：小程序主页相关代码
 	
 	import.js (主要代码)
 	
@@ -72,7 +72,7 @@
 	  })
 	  ```
 	
-+ **info：**小程序数据页相关代码
++ info：小程序数据页相关代码
 	
 	   info.js (主要代码)
 	
@@ -102,21 +102,21 @@
 	    })
 	   ```
 	
-+ **stars：**小程序收藏夹相关代码
++ stars：小程序收藏夹相关代码
 
 #### app.json
 
-    ```json
-    {
-      "pages": [...],
-      "window": {
-        "navigationBarTextStyle": "black",
-        "navigationStyle": "custom"
-      },
-      "sitemapLocation": "sitemap.json",
-      "style": "v2"
-    }
-    ```
+```json
+{
+  "pages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}
+```
 实现标题栏隐藏
 
 
@@ -125,43 +125,42 @@
 
   #### sendEmail
 
-    使用node.js的nodemailer类库实现工单邮件的发送
-    
-    ```js
-    const cloud = require('wx-server-sdk')
-    cloud.init()
-    //引入发送邮件的类库
-    var nodemailer = require('nodemailer')
-    // 创建一个SMTP客户端配置
-    var config = {
-      host: 'smtp.qq.com', //网易163邮箱 smtp.163.com
-      port: 465, //网易邮箱端口 25
-      auth: {
-        user: 'weyounglc@qq.com', //邮箱账号
-        pass: '...' //邮箱的授权码
-      }
-    };
-    // 创建一个SMTP客户端对象
-    var transporter = nodemailer.createTransport(config);
-    // 云函数入口函数
-    exports.main = async(event, context) => {
-      let { userInfo, email} = event
-      // 创建一个邮件对象
-      var mail = {
-        from: '来自Lies <weyounglc@qq.com>',
-        subject: '来自Lies的邮件',
-        to: String(email),
-        text: '分类数据', 
-        attachments: [
-          {
-            filename: 'classifiction.json',
-            content: "...",
-        ]
-      };
-      let res = await transporter.sendMail(mail);
-      return res;
-    }
-    ```
+使用node.js的nodemailer类库实现工单邮件的发送
+```js
+const cloud = require('wx-server-sdk')
+cloud.init()
+//引入发送邮件的类库
+var nodemailer = require('nodemailer')
+// 创建一个SMTP客户端配置
+var config = {
+  host: 'smtp.qq.com', //网易163邮箱 smtp.163.com
+  port: 465, //网易邮箱端口 25
+  auth: {
+    user: 'weyounglc@qq.com', //邮箱账号
+    pass: '...' //邮箱的授权码
+  }
+};
+// 创建一个SMTP客户端对象
+var transporter = nodemailer.createTransport(config);
+// 云函数入口函数
+exports.main = async(event, context) => {
+  let { userInfo, email} = event
+  // 创建一个邮件对象
+  var mail = {
+    from: '来自Lies <weyounglc@qq.com>',
+    subject: '来自Lies的邮件',
+    to: String(email),
+    text: '分类数据', 
+    attachments: [
+      {
+        filename: 'classifiction.json',
+        content: "...",
+    ]
+  };
+  let res = await transporter.sendMail(mail);
+  return res;
+}
+```
 
 
 
@@ -179,9 +178,9 @@
     margin: 0;
     box-sizing: border-box;
     /* 
-  	为元素设定的宽度和高度决定了元素的边框盒。
-  	就是说，为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。
-  	通过从已设定的宽度和高度分别减去边框和内边距才能得到内容的宽度和高度。
+    为元素设定的宽度和高度决定了元素的边框盒。
+    就是说，为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。
+    通过从已设定的宽度和高度分别减去边框和内边距才能得到内容的宽度和高度。
     */
   }
   ```
@@ -199,7 +198,6 @@
   + vmax : 选取 vw 和 vh 中最大的那个
 
   > 建议以fpx为主，vw、vh为辅
-  >
   > 也可以使用vant等组件库中的Layout布局插件
 
 
@@ -208,9 +206,9 @@
 
   ```css
   {
-  	display: flex;
-  	justify-content: center;
-  	align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   ```
 
@@ -224,19 +222,14 @@
   {
       /* x偏移量 | y偏移量 | 阴影颜色 */
       box-shadow: 60px -16px teal;
-  
       /* x偏移量 | y偏移量 | 阴影模糊半径 | 阴影颜色 */
       box-shadow: 10px 5px 5px black;
-  
       /* x偏移量 | y偏移量 | 阴影模糊半径 | 阴影扩散半径 | 阴影颜色 */
       box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-  
       /* 插页(阴影向内) | x偏移量 | y偏移量 | 阴影颜色 */
       box-shadow: inset 5em 1em gold;
-  
       /* 任意数量的阴影，以逗号分隔 */
       box-shadow: 3px 3px red, -1em 0 0.4em olive;
-  
       /* 全局关键字 */
       box-shadow: inherit;
       box-shadow: initial;
