@@ -193,7 +193,7 @@
 
   ```css
   {
-      display: flex;
+    display: flex;
   	justify-content: center;
   	align-items: center;
   }
@@ -250,7 +250,7 @@ npm i vant-weapp -S --production
 
 打开微信开发者工具，点击 **工具 -> 构建 npm**，并勾选 **使用 npm 模块** 选项，构建完成后，即可引入组件
 
-![img](https://img.yzcdn.cn/public_files/2019/08/15/fa0549210055976cb63798503611ce3d.png)
+![img](https://ftp.bmp.ovh/imgs/2020/05/ce6239e05a7d5fd8.png)
 
 #### 步骤三 修改 tsconfig.json
 
@@ -303,7 +303,7 @@ npm i vant-weapp -S --production
 
 `index.json` 配置如下：
 
-```
+```json
 {
   "usingComponents": {
     "ec-canvas": "../../ec-canvas/ec-canvas"
@@ -315,7 +315,7 @@ npm i vant-weapp -S --production
 
 `index.wxml` 中，我们创建了一个 `` 组件，内容如下：
 
-```
+```html
 <view class="container">
   <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
 </view>
@@ -325,7 +325,7 @@ npm i vant-weapp -S --production
 
 其中 `ec` 是一个我们在 `index.js` 中定义的对象，它使得图表能够在页面加载后被初始化并设置。`index.js` 的结构如下：
 
-```
+```js
 function initChart(canvas, width, height, dpr) {
   const chart = echarts.init(canvas, null, {
     width: width,
@@ -358,7 +358,7 @@ Page({
 
 ## APP生命周期
 
-![img](https://res.wx.qq.com/wxdoc/dist/assets/img/page-lifecycle.2e646c86.png)
+![img](https://ftp.bmp.ovh/imgs/2020/05/a46a83056a552172.png)
 
 
 
