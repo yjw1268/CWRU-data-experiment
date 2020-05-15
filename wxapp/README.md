@@ -1,6 +1,5 @@
-# 轴承故障预测 第十组
-
-
+# 轴承故障预测 小程序
+第十组
 
 ![](https://ftp.bmp.ovh/imgs/2020/05/a047b6eaf09fc0fe.jpg)
 
@@ -11,17 +10,18 @@
 ## 项目结构
 
 ```
-10:.
+wxapp
+.
 ├─cloudfunctions
 │  └─sendEmail
 │      └─node_modules
 │          └─nodemailer
 │              └─lib
-│                  ├─...
+│                  └─...
 └─miniprogram
     ├─components
     ├─dist
-    │  ├─...
+    │  └─...
     ├─ec-canvas
     ├─pages
     │  ├─index
@@ -379,6 +379,12 @@ Page({
 
 
 
+## 程序部分截图
+![image.png](https://i.loli.net/2020/05/12/KVpCGmLEvlRSoBu.png)
+
+![image.png](https://i.loli.net/2020/05/12/mCWFeSU1XEV6KBJ.png)
+
+![image.png](https://i.loli.net/2020/05/12/Ke6cfBLJHQGIUlu.png)
 
 
 ## 参考文档
