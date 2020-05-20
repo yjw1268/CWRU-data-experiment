@@ -160,6 +160,8 @@ mkl=2019.5
 ## What's more
 除了[PHM](http://www.phmlearn.com/api/get_list/3)网站提供的以外，我们也在自己的[服务器](https://www.bupt404.cn/)上搭建了API。部分后端代码例子可以参考`othercode`文件夹内的`.py`代码。也可以参照我们的[部分API文档](https://documenter.getpostman.com/view/10553949/SzKZrbDE?version=latest)。（仍在更新中）
 
+前端小程序部分由 [Lies-Lee](https://github.com/Lies-Lee) 等负责，在 `wxapp` 文件夹中有详细的代码说明。
+
 ## Contact
 如果您有问题或者建议，欢迎访问开发者 [网站](https://www.bupt404.cn/)，[邮箱](mailto:yjw981213@163.com)，[Issues](https://github.com/yjw1268/CWRU-data-experiment/issues)联系。
 
